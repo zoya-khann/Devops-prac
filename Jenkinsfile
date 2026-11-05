@@ -19,5 +19,11 @@ pipeline {
       }
     }
 
+    stage('End') {
+      steps {
+        bat 'echo "Pipeline completed successfully"'
+      }
+    }
+
   }
 }
