@@ -15,6 +15,12 @@ pipeline {
           }
         }
 
+        stage('Archive the artifacts') {
+          steps {
+            archiveArtifacts(allowEmptyArchive: true, artifacts: 'build-info.txt')
+          }
+        }
+
       }
     }
 
