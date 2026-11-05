@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        bat 'echo "Compiling"'
+      parallel {
+        stage('Build') {
+          steps {
+            bat 'echo "Compiling"'
+          }
+        }
+
+        stage('Build Stage') {
+          steps {
+            bat 'echo "Build Version 1.0" > build-info.txt'
+          }
+        }
+
       }
     }
 
